@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+body {
+    background-image: url("https://media.gq-magazine.co.uk/photos/5d5d2f164d3a1d00088377ea/16:9/w_2580,c_limit/20190821-Gym-update.jpg");
+    height: 100vh;
+    width: 100vw;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border: 2px solid white;
+    border-radius: 0.5rem;
+}
+
+.container,
+body,
+.weight,
+.height {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weight,
+.height {
+    margin-top: 1.8rem;
+}
+
+form label {
+    font-weight: bolder;
+}
+
+form input {
+    padding: 2.5px;
+    margin-left: 4px;
+    text-align: start;
+    font-weight: 700;
+    border: none;
+    outline: none;
+}
+
+#H,
+#W {
+    border: none;
+    outline: none;
+    position: relative;
+    right: 4rem;
+    font-size: 15px;
+    z-index: -1/-2;
+    cursor: pointer;
+}
+
+#H {
+    font-size: 17px;
+}
+
+form button {
+    margin: 1rem 0 0.5rem 0;
+    width: 40%;
+    font-size: 22px;
+    border: 2px solid black;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    color: green;
+}
+
+.result {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    /* text-align: start; */
+    align-items: center;
+    padding: 2px 0 2px 3px;
+    border-radius: 0.2rem;
+}
+
+.result p {
+    margin-left: 1.5rem;
+    font-size: 20px;
+
+}
+
+.guide {
+    margin-top: 2rem;
+}
+
+.guide ul {
+    list-style-type: none;
+    margin-left: 3rem;
+    color: white;
+}
+
+.guide li {
+    margin-bottom: 0.5rem;
+}
