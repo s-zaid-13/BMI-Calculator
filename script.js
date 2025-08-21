@@ -7,7 +7,6 @@ const selectW = document.querySelector("#W");
 const bmiFill = document.querySelector("#bmiFill");
 const bmiHistoryList = document.querySelector("#bmiHistoryList");
 
-// Get BMI category
 function getBMICategory(bmi) {
     if (bmi < 18.6) return { text: "Underweight", color: "blue", advice: "You are underweight. Consider a nutritious diet." };
     if (bmi < 24.9) return { text: "Normal weight", color: "green", advice: "Great! Keep maintaining your healthy lifestyle." };
@@ -15,7 +14,6 @@ function getBMICategory(bmi) {
     return { text: "Obesity", color: "red", advice: "Obese. Consult a doctor for a suitable plan." };
 }
 
-// Store BMI history
 function storeHistory(bmiData) {
     let history = JSON.parse(localStorage.getItem("bmiHistory")) || [];
     history.unshift(bmiData);
@@ -24,7 +22,6 @@ function storeHistory(bmiData) {
     displayHistory();
 }
 
-// Display history
 function displayHistory() {
     let history = JSON.parse(localStorage.getItem("bmiHistory")) || [];
     bmiHistoryList.innerHTML = "";
@@ -35,7 +32,6 @@ function displayHistory() {
     });
 }
 
-// Clear result on focus
 [heightInput, weightInput].forEach(input => {
     input.addEventListener("focus", () => {
         msg.innerHTML = "";
@@ -43,7 +39,6 @@ function displayHistory() {
     });
 });
 
-// On form submit
 form.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
@@ -55,7 +50,6 @@ form.addEventListener("submit", (evt) => {
         return;
     }
 
-    // Convert units
     if (selectH.value === "cm") heightValue /= 100;
     else if (selectH.value === "in") heightValue /= 39.37;
 
@@ -65,21 +59,16 @@ form.addEventListener("submit", (evt) => {
     const bmi = (weightValue / (heightValue * heightValue)).toFixed(2);
     const category = getBMICategory(bmi);
 
-    // Show result
+
     msg.innerHTML = `Your BMI is <span style="color:${category.color}; font-weight:bold;">${bmi}</span> (${category.text})<br><small>${category.advice}</small>`;
 
-    // Animate BMI circle (height proportional to BMI, capped at 100%)
     let fillPercent = Math.min((bmi / 40) * 100, 100);
     bmiFill.style.height = `${fillPercent}%`;
     bmiFill.style.backgroundColor = category.color;
 
-    // Store history
     storeHistory({ bmi, category: category.text, date: new Date().toLocaleDateString() });
-
-    // Clear inputs
     heightInput.value = "";
     weightInput.value = "";
 });
 
-// Display history on page load
 displayHistory();
