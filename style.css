@@ -1,0 +1,214 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url("https://media.gq-magazine.co.uk/photos/5d5d2f164d3a1d00088377ea/16:9/w_2580,c_limit/20190821-Gym-update.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Form Elements */
+form h1 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+form label {
+    font-weight: 600;
+    color: white;
+}
+
+form input,
+form select {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    border: none;
+    outline: none;
+    width: 100%;
+    max-width: 150px;
+}
+
+.height,
+.weight {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Button */
+form button {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    background-color: white;
+    color: #27ae60;
+    border-color: #27ae60;
+}
+
+/* Result */
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-weight: 600;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    min-height: 80px;
+    text-align: center;
+}
+
+.result h2 {
+    margin-bottom: 0.3rem;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.result p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    word-wrap: break-word;
+}
+
+/* BMI Circle */
+.bmi-circle {
+    width: 80px;
+    height: 80px;
+    border: 3px solid #ccc;
+    border-radius: 50%;
+    margin-top: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.bmi-fill {
+    background-color: green;
+    width: 100%;
+    height: 0%;
+    position: absolute;
+    bottom: 0;
+    transition: height 1s ease, background-color 0.5s ease;
+}
+
+/* Guide */
+.guide {
+    margin-top: 1rem;
+    color: white;
+    width: 100%;
+}
+
+.guide h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.guide ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.guide li {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+}
+
+/* History */
+.history {
+    margin-top: 1rem;
+    width: 100%;
+    color: white;
+}
+
+.history ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.history li {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 480px) {
+
+    .height,
+    .weight {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    form input,
+    form select {
+        margin-left: 0;
+        margin-top: 0.3rem;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    form button {
+        font-size: 1rem;
+        padding: 0.6rem;
+    }
+
+    .bmi-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .result {
+        font-size: 0.95rem;
+        padding: 0.8rem;
+        min-height: 70px;
+    }
+
+    .guide li,
+    .history li {
+        font-size: 0.85rem;
+    }
+}
